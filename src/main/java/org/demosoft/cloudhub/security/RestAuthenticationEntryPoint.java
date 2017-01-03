@@ -1,5 +1,7 @@
-package org.demosoft.cloudhub;
+package org.demosoft.cloudhub.security;
 
+import org.demosoft.cloudhub.config.SiteConfig;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -14,9 +16,16 @@ import java.io.IOException;
 @Component("restAuthenticationEntryPoint")
 public class RestAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
+    @Autowired
+    private SiteConfig siteConfig;
+
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response,
                          AuthenticationException authException) throws IOException {
-        response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+        if (!request.getHeader("Accept").contains("text/html")) {
+            response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
+        } else {
+            response.sendRedirect(siteConfig.getLoginPage());
+        }
     }
 }

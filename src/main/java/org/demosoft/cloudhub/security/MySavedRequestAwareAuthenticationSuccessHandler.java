@@ -1,4 +1,4 @@
-package org.demosoft.cloudhub;
+package org.demosoft.cloudhub.security;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;

@@ -1,10 +1,10 @@
 package org.demosoft.cloudhub.security;
 
-import org.demosoft.cloudhub.MySavedRequestAwareAuthenticationSuccessHandler;
-import org.demosoft.cloudhub.RestAuthenticationEntryPoint;
+import org.demosoft.cloudhub.config.SiteConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -18,6 +18,7 @@ import javax.annotation.PostConstruct;
  */
 @Configuration
 @EnableWebSecurity
+@PropertySource("classpath:site-config.properties")
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @PostConstruct
@@ -30,6 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private MySavedRequestAwareAuthenticationSuccessHandler authenticationSuccessHandler;
+
+    @Autowired
+    private SiteConfig siteConfig;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -47,9 +51,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers("/hub").authenticated()
+                .antMatchers("/hub/*").authenticated()
                 .and()
-                .formLogin().loginPage("/login")
+                .formLogin()
                 .successHandler(authenticationSuccessHandler)
+                .loginPage(siteConfig.getLoginPage())
                 .failureHandler(new SimpleUrlAuthenticationFailureHandler())
                 .and()
                 .logout();
