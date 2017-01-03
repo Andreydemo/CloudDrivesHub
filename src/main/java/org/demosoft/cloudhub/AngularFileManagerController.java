@@ -67,12 +67,12 @@ public class AngularFileManagerController {
             //  Properties prop = new Properties();
             // load a properties file from class path, inside static method
             //   prop.load(propertiesFile);
-            REPOSITORY_BASE_URL = "F:\\demosoft\\cloudDrivesHub\\space";
+            REPOSITORY_BASE_URL = "/Users/andrii_korkoshko/development/space";
                /* if (!"".equals(REPOSITORY_BASE_URL) && !new File(getServletContext().getRealPath(REPOSITORY_BASE_URL)).isDirectory()) {
                     // REPOSITORY_BASE_URL is not empty AND NOT a directory
                     throw new ServletException("invalid repository.base.url");
                 }*/
-            REPOSITORY_BASE_PATH = "F:\\demosoft\\cloudDrivesHub\\space";
+            REPOSITORY_BASE_PATH = "/Users/andrii_korkoshko/development/space";
             if (!"".equals(REPOSITORY_BASE_PATH) && !new File(REPOSITORY_BASE_PATH).isDirectory()) {
                 // REPOSITORY_BASE_URL is not empty AND not a directory
                 throw new ServletException("invalid repository.base.path");

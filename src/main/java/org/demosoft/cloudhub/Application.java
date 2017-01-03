@@ -16,17 +16,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 @ComponentScan("org.demosoft.cloudhub")
 public class Application {
 
-    @Configuration
-    public class DefaultView extends WebMvcConfigurerAdapter {
-
-        @Override
-        public void addViewControllers( ViewControllerRegistry registry ) {
-            registry.addViewController( "/" ).setViewName( "forward:/index.html" );
-            registry.setOrder( Ordered.HIGHEST_PRECEDENCE );
-            super.addViewControllers( registry );
-        }
-    }
-
     public static void main(String[] args) throws Exception {
         SpringApplication.run(Application.class, args);
     }
