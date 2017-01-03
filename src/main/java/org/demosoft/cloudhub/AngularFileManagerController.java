@@ -8,6 +8,7 @@ import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang3.BooleanUtils;
 import org.apache.http.HttpStatus;
+import org.demosoft.cloudhub.config.FileSystemConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.slf4j.Logger;
@@ -44,6 +45,9 @@ public class AngularFileManagerController {
 
     private static final long serialVersionUID = -8453502699403909016L;
 
+    @Autowired
+    private FileSystemConfig fileSystemConfig;
+
     enum Mode {
         list, rename, copy, delete, savefile, editfile, createFolder, changePermissions, compress, extract
     }
@@ -67,12 +71,12 @@ public class AngularFileManagerController {
             //  Properties prop = new Properties();
             // load a properties file from class path, inside static method
             //   prop.load(propertiesFile);
-            REPOSITORY_BASE_URL = "/Users/andrii_korkoshko/development/space";
+            REPOSITORY_BASE_URL = fileSystemConfig.getRepositoryBasePath();
                /* if (!"".equals(REPOSITORY_BASE_URL) && !new File(getServletContext().getRealPath(REPOSITORY_BASE_URL)).isDirectory()) {
                     // REPOSITORY_BASE_URL is not empty AND NOT a directory
                     throw new ServletException("invalid repository.base.url");
                 }*/
-            REPOSITORY_BASE_PATH = "/Users/andrii_korkoshko/development/space";
+            REPOSITORY_BASE_PATH = fileSystemConfig.getRepositoryBasePath();
             if (!"".equals(REPOSITORY_BASE_PATH) && !new File(REPOSITORY_BASE_PATH).isDirectory()) {
                 // REPOSITORY_BASE_URL is not empty AND not a directory
                 throw new ServletException("invalid repository.base.path");
