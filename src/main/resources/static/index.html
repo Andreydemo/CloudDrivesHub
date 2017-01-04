@@ -1,10 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-ng-app="FileManagerSiteApp">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Cloud Drive Hub</title>
+    <!-- third party -->
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="bower_components/bootswatch/paper/bootstrap.min.css"/>
+    <!-- /third party -->
+    <!--Uncomment if you need to use raw source code-->
+
+
+    <script src="src/site/js/app.js"></script>
+
+    <script src="src/site/js/directives/directives.js"></script>
+
+    <script src="src/site/js/providers/config.js"></script>
+    <script src="src/site/js/providers/translations.js"></script>
+
+    <script src="src/site/js/entities/chmod.js"></script>
+    <script src="src/site/js/entities/item.js"></script>
+
+    <script src="src/site/js/controllers/main.js"></script>
+    <script src="src/site/js/controllers/selector-controller.js"></script>
+
+    <script type="text/javascript">
+    //example to override angular-filemanager default config
+    angular.module('FileManagerSiteApp').config(['fileManagerSiteConfigProvider', function (config) {
+      var defaults = config.$get();
+      config.set({
+        appName: 'Cloud Drive Hub',
+        pickCallback: function(item) {
+          var msg = 'Picked %s "%s" for external use'
+            .replace('%s', item.type)
+            .replace('%s', item.fullPath());
+          window.alert(msg);
+        },
+
+        allowedActions: angular.extend(defaults.allowedActions, {
+          pickFiles: false,
+          pickFolders: false,
+        }),
+      });
+    }]);
+
+
+    </script>
 </head>
-<body>
-Landing
+<body class="ng-cloak">
+<angular-filemanager-site></angular-filemanager-site>
 </body>
 </html>
