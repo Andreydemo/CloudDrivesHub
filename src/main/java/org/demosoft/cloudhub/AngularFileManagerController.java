@@ -66,7 +66,7 @@ public class AngularFileManagerController {
         //InputStream propertiesFile = null;
         try {
             //String splittedThisServletPara[] = getInitParameter("properties").split(",");
-            //propertiesFile = getServletContext().getResourceAsStream(splittedThisServletPara[1].trim());				// get the default one
+            //propertiesFile = getServletContext().getResourceAsStream(splittedThisServletPara[1].trim());				// getDBProfile the default one
             // if (propertiesFile != null) {
             //  Properties prop = new Properties();
             // load a properties file from class path, inside static method
@@ -243,7 +243,7 @@ public class AngularFileManagerController {
             // maximum file size to be uploaded.
             upload.setSizeMax(100 * 1024);
 
-            // Parse the request to get file items.
+            // Parse the request to getDBProfile file items.
             List fileItems = upload.parseRequest(request);
             ////////////////
 
@@ -366,7 +366,7 @@ public class AngularFileManagerController {
                 case delete:
                     responseJsonObject = delete(params);
                     break;
-                case editfile: // get content
+                case editfile: // getDBProfile content
                     responseJsonObject = editFile(params);
                     break;
                 case savefile: // save content
@@ -489,7 +489,7 @@ public class AngularFileManagerController {
     }
 
     private JSONObject editFile(JSONObject params) throws ServletException {
-        // get content
+        // getDBProfile content
         try {
             String path = params.getString("path");
             LOG.debug("editFile path: {}", path);
