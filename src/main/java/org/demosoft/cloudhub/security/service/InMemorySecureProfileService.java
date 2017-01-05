@@ -1,13 +1,14 @@
 package org.demosoft.cloudhub.security.service;
 
+import org.demosoft.cloudhub.profile.AuthorizationMethod;
 import org.demosoft.cloudhub.profile.Profile;
 import org.demosoft.cloudhub.security.Role;
 import org.demosoft.cloudhub.security.RoleGrantedAuthority;
 import org.demosoft.cloudhub.security.SecureProfile;
+import org.demosoft.cloudhub.profile.AuthorizationMethodSupport;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import java.util.Arrays;
@@ -18,7 +19,7 @@ import java.util.Map;
  * Created by Andrii_Korkoshko on 1/3/2017.
  */
 
-public class InMemorySecureProfileService implements SecureProfileService {
+public class InMemorySecureProfileService implements SecureProfileService, AuthorizationMethodSupport {
 
     private Map<String, Profile> profiles = new HashMap();
 
@@ -34,9 +35,9 @@ public class InMemorySecureProfileService implements SecureProfileService {
     }
 
 
-    public SecureProfile login(String username, String password) {
-        SecureProfile profile = getByUsername(username);
-        if (profile.getPassword().equals(password)) {
+    public SecureProfile login(SecureProfile secureProfile) {
+        SecureProfile profile = getByUsername(secureProfile.getUsername());
+        if (profile.getPassword().equals(secureProfile.getPassword())) {
             Authentication auth = new UsernamePasswordAuthenticationToken(profile, null, profile.getAuthorities());
 
             SecurityContextHolder.getContext().setAuthentication(auth);
@@ -53,6 +54,11 @@ public class InMemorySecureProfileService implements SecureProfileService {
     @Override
     public void save(SecureProfile profile) {
         profiles.put(profile.getUsername(), profile);
+    }
+
+    @Override
+    public AuthorizationMethod getAuthorizationMethod() {
+        return AuthorizationMethod.NATIVE;
     }
 
     @Override
@@ -74,4 +80,5 @@ public class InMemorySecureProfileService implements SecureProfileService {
     public boolean validateUsername(String username) {
         return profiles.containsKey(username);
     }
+
 }

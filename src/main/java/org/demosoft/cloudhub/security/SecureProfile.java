@@ -23,6 +23,14 @@ public class SecureProfile extends BasicProfile implements UserDetails {
         this.roles = roles;
     }
 
+
+    public SecureProfile() {
+    }
+
+    public SecureProfile(String password, String username) {
+        super(password, username);
+    }
+
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return roles;

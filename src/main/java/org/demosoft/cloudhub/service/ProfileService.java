@@ -1,11 +1,14 @@
 package org.demosoft.cloudhub.service;
 
+import org.demosoft.cloudhub.profile.AuthorizationMethod;
 import org.demosoft.cloudhub.profile.Profile;
+import org.demosoft.cloudhub.security.SecureProfile;
 
 /**
  * Created by Andrii_Korkoshko on 1/3/2017.
  */
 public interface ProfileService {
+
 
     void register(Profile profile);
 
@@ -15,5 +18,5 @@ public interface ProfileService {
 
     boolean validateUsername(String username);
 
-    Profile login(String username, String password);
+    Profile login(SecureProfile profile);
 }

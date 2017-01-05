@@ -18,5 +18,5 @@ public interface SecureProfileService extends ProfileService {
 
     boolean validateUsername(String username);
 
-    SecureProfile login(String username, String password);
+    SecureProfile login(SecureProfile profile);
 }

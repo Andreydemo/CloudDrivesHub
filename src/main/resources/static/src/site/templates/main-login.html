@@ -1,15 +1,17 @@
 <div class="container-fluid">
     <form method="POST" action="/auth/login">
+        <label class="radio">Please Login</b></label>
         <br>
         <br>
-        <input name="username" placeholder="username">
+        <input name="username" placeholder="username" class="form-control" autofocus="autofocus">
         <br>
-        <input name="password" placeholder="password" type="password">
+        <input name="password" placeholder="password" type="password" class="form-control">
         <br>
-        <input type="submit" value="login">
-        <br>
-        <button class="btn btn-flat btn-sm" title="login">
-            <i class="glyphicon glyphicon-log-in"  style="color:#2196f3"></i>
-        </button>
+        <input type="submit" value="login" class="btn btn-primary">
+
     </form>
+
+    <a class="btn btn-primary"  href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=690021527776-te0rhgc7pn70h6rrg1t01tkajok6oc3v.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&redirect_uri=http%3A%2F%2Flocalhost:8080%2Fauth%2Fgoogle-signup">
+        Login with Google
+    </a>
 </div>

@@ -14,7 +14,7 @@
         };
         $scope.query = '';
         $scope.uploadFileList = [];
-        $scope.viewTemplate = $storage.getItem('viewTemplate') || 'main-icons.html';
+        $scope.siteViewTemplate = $storage.getItem('siteViewTemplate') || 'main-content-table.html';
         $scope.logged = false;
         $scope.fileList = [];
         $scope.temps = [];
@@ -31,8 +31,8 @@
 
 
         $scope.setTemplate = function(name) {
-            $storage.setItem('viewTemplate', name);
-            $scope.viewTemplate = name;
+            $storage.setItem('siteViewTemplate', name);
+            $scope.siteViewTemplate = name;
         };
 
         $scope.changeLanguage = function (locale) {

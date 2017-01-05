@@ -33,7 +33,8 @@
                         <button class="btn btn-flat btn-sm" ng-click="$parent.setTemplate('main-reg.html')" ng-show="$parent.logged == false" title="{{'icons' | translate}}">
                             <i class="glyphicon glyphicon-registration-mark"></i>
                         </button>
-                        <button class="btn btn-flat btn-sm" ng-click="$parent.setTemplate('main-login.html')" ng-show="$parent.logged == false" title="{{'icons' | translate}}">
+                        <!--ng-click="modal('login')"-->
+                        <button  class="btn btn-flat btn-sm"   ng-click="$parent.setTemplate('main-login.html') && modal('rename')"  ng-show="$parent.logged == false" title="{{'icons' | translate}}">
                             <i class="glyphicon glyphicon-log-in"></i>
                         </button>
 
@@ -44,9 +45,12 @@
                             <i class="glyphicon glyphicon-user"></i>
                         </button>
 
+
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <div ng-include="config.tplPath + '/modals.html'"></div>
 </nav>
