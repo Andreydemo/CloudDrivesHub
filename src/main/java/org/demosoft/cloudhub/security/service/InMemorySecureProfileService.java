@@ -17,7 +17,7 @@ import java.util.Map;
 /**
  * Created by Andrii_Korkoshko on 1/3/2017.
  */
-@Component
+
 public class InMemorySecureProfileService implements SecureProfileService {
 
     private Map<String, Profile> profiles = new HashMap();

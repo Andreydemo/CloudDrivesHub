@@ -22,8 +22,6 @@ public class AuthenticationController {
     @Autowired
     private SecureProfileService profileService;
 
-    @Autowired
-    private ProfileRepository profileRepository;
 
     @RequestMapping("/logout")
     public String logout(HttpServletRequest request) throws ServletException {
@@ -43,7 +41,7 @@ public class AuthenticationController {
         s.setUsername(username);
         s.setPassword(password);
         s.setId(UUID.randomUUID().toString());
-        profileRepository.save(s);
+        profileService.register(s);
         return "success";
     }
 }

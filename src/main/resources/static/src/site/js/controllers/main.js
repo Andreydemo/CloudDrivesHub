@@ -15,6 +15,7 @@
         $scope.query = '';
         $scope.uploadFileList = [];
         $scope.viewTemplate = $storage.getItem('viewTemplate') || 'main-icons.html';
+        $scope.logged = false;
         $scope.fileList = [];
         $scope.temps = [];
 
