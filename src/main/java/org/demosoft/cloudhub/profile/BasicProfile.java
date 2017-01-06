@@ -2,7 +2,9 @@ package org.demosoft.cloudhub.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Andrii_Korkoshko on 1/3/2017.
@@ -10,9 +12,22 @@ import java.util.List;
 public class BasicProfile implements Profile, Serializable {
 
     private String username;
+
     private String password;
 
+    private String firstName;
+
+    private String lastName;
+
+    private String email;
+
+    private String gender;
+
     private List<AuthorizationMethod> authorizationMethods = new ArrayList<>();
+
+    private Map<AuthorizationMethod, String> authorizationMethodsIds = new HashMap<>();
+
+    private Map<String, String> dynamicStringAttributes = new HashMap<>();
 
 
     public BasicProfile() {
@@ -48,8 +63,63 @@ public class BasicProfile implements Profile, Serializable {
         return authorizationMethods;
     }
 
+    @Override
     public void setAuthorizationMethods(List<AuthorizationMethod> authorizationMethods) {
         this.authorizationMethods = authorizationMethods;
     }
 
+    @Override
+    public Map<AuthorizationMethod, String> getAuthorizationMethodsIds() {
+        return authorizationMethodsIds;
+    }
+
+    @Override
+    public void setAuthorizationMethodsIds(Map<AuthorizationMethod, String> authorizationMethodsIds) {
+        this.authorizationMethodsIds = authorizationMethodsIds;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @Override
+    public String getFirstName() {
+        return firstName;
+    }
+
+    @Override
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    @Override
+    public String getGender() {
+        return gender;
+    }
+
+    @Override
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    @Override
+    public Map<String, String> getDynamicStringAttributes() {
+        return dynamicStringAttributes;
+    }
+
+    @Override
+    public String getLastName() {
+        return lastName;
+    }
+
+    @Override
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
 }

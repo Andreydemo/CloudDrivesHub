@@ -27,7 +27,7 @@ public class DbProfile extends SecureProfile {
     public DbProfile() {
     }
 
-    public void update(SecureProfile secureProfile){
+    public void update(SecureProfile secureProfile) {
         this.setRoles(secureProfile.getRoles());
         this.setUsername(secureProfile.getUsername());
         this.setPassword(secureProfile.getPassword());
@@ -39,6 +39,12 @@ public class DbProfile extends SecureProfile {
         dbProfile.setRoles(secureProfile.getRoles());
         dbProfile.setUsername(secureProfile.getUsername());
         dbProfile.setPassword(secureProfile.getPassword());
+        dbProfile.getDynamicStringAttributes().putAll(secureProfile.getDynamicStringAttributes());
+        dbProfile.setGender(secureProfile.getGender());
+        dbProfile.setFirstName(secureProfile.getFirstName());
+        dbProfile.setLastName(secureProfile.getLastName());
+        dbProfile.setAuthorizationMethodsIds(secureProfile.getAuthorizationMethodsIds());
+        dbProfile.setAuthorizationMethods(secureProfile.getAuthorizationMethods());
         return dbProfile;
     }
 
@@ -47,6 +53,12 @@ public class DbProfile extends SecureProfile {
         dbProfile.setRoles(secureProfile.getRoles());
         dbProfile.setUsername(secureProfile.getUsername());
         dbProfile.setPassword(secureProfile.getPassword());
+        dbProfile.getDynamicStringAttributes().putAll(secureProfile.getDynamicStringAttributes());
+        dbProfile.setGender(secureProfile.getGender());
+        dbProfile.setFirstName(secureProfile.getFirstName());
+        dbProfile.setLastName(secureProfile.getLastName());
+        dbProfile.setAuthorizationMethodsIds(secureProfile.getAuthorizationMethodsIds());
+        dbProfile.setAuthorizationMethods(secureProfile.getAuthorizationMethods());
         return dbProfile;
     }
 
