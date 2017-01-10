@@ -1,19 +1,170 @@
-<div class="container-fluid">
-    <br>
-    <br>
-    <form method="POST" action="/auth/signup">
-        <br>
+<div class="container">
 
-        <label class="radio">Please Input Your Info</b></label>
-        <input name="username" placeholder="username" class="form-control" autofocus="autofocus">
+    <form method="POST" action="/auth/signup" class="form-horizontal" role="form">
+        <h2>Registration Form</h2>
         <br>
-        <input name="password" placeholder="password" class="form-control" >
-        <input type="submit" value="sign Up" class="btn btn-primary">
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Username/Email</label>
+            <div class="col-sm-9">
+                <input type="email" id="username" placeholder="Username" class="form-control" autofocus name="username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="text" id="password" placeholder="Password" class="form-control" autofocus name="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="cpassword" class="col-sm-3 control-label">Confirm password</label>
+            <div class="col-sm-9">
+                <input type="text" id="cpassword" placeholder="Confirm password" class="form-control" autofocus name="cpassword">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">First name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" placeholder="First name" class="form-control" autofocus name="firstName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="lastName" class="col-sm-3 control-label">Last name</label>
+            <div class="col-sm-9">
+                <input type="text" id="lastName" placeholder="Last name" class="form-control" autofocus name="lastName">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-3">Gender</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="femaleRadio" value="Female">Female
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="maleRadio" value="Male">Male
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <a class="btn btn-primary btn-block"  href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=690021527776-te0rhgc7pn70h6rrg1t01tkajok6oc3v.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&redirect_uri=http%3A%2F%2Flocalhost:8080%2Fauth%2Fgoogle-signup">
+                    Login with Google
+                </a>
+            </div>
+        </div>
+
 
     </form>
-    <a class="btn btn-primary"  href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=690021527776-te0rhgc7pn70h6rrg1t01tkajok6oc3v.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&redirect_uri=http%3A%2F%2Flocalhost:8080%2Fauth%2Fgoogle-signup">
-        Login with Google
-    </a>
-
 
 </div>
+<!--
+
+<div class="container">
+    <form class="form-horizontal" role="form">
+        <h2>Registration Form</h2>
+        <div class="form-group">
+            <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+            <div class="col-sm-9">
+                <input type="text" id="firstName" placeholder="Full Name" class="form-control" autofocus>
+                <span class="help-block">Last Name, First Name, eg.: Smith, Harry</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email" class="col-sm-3 control-label">Email</label>
+            <div class="col-sm-9">
+                <input type="email" id="email" placeholder="Email" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="password" id="password" placeholder="Password" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="birthDate" class="col-sm-3 control-label">Date of Birth</label>
+            <div class="col-sm-9">
+                <input type="date" id="birthDate" class="form-control">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="country" class="col-sm-3 control-label">Country</label>
+            <div class="col-sm-9">
+                <select id="country" class="form-control">
+                    <option>Afghanistan</option>
+                    <option>Bahamas</option>
+                    <option>Cambodia</option>
+                    <option>Denmark</option>
+                    <option>Ecuador</option>
+                    <option>Fiji</option>
+                    <option>Gabon</option>
+                    <option>Haiti</option>
+                </select>
+            </div>
+        </div> &lt;!&ndash; /.form-group &ndash;&gt;
+        <div class="form-group">
+            <label class="control-label col-sm-3">Gender</label>
+            <div class="col-sm-6">
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="femaleRadio" value="Female">Female
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="maleRadio" value="Male">Male
+                        </label>
+                    </div>
+                    <div class="col-sm-4">
+                        <label class="radio-inline">
+                            <input type="radio" id="uncknownRadio" value="Unknown">Unknown
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div> &lt;!&ndash; /.form-group &ndash;&gt;
+        <div class="form-group">
+            <label class="control-label col-sm-3">Meal Preference</label>
+            <div class="col-sm-9">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="calorieCheckbox" value="Low calorie">Low calorie
+                    </label>
+                </div>
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox" id="saltCheckbox" value="Low salt">Low salt
+                    </label>
+                </div>
+            </div>
+        </div> &lt;!&ndash; /.form-group &ndash;&gt;
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <div class="checkbox">
+                    <label>
+                        <input type="checkbox">I accept <a href="#">terms</a>
+                    </label>
+                </div>
+            </div>
+        </div> &lt;!&ndash; /.form-group &ndash;&gt;
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
+    </form> &lt;!&ndash; /form &ndash;&gt;
+</div> &lt;!&ndash; ./container &ndash;&gt;
+-->

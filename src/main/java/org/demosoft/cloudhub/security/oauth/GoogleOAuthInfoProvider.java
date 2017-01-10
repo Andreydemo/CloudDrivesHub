@@ -156,4 +156,52 @@ public class GoogleOAuthInfoProvider implements OAuthInfoProvider {
             return sb.toString();
         }
     }
+
+    public String getRedirectUrl() {
+        return redirectUrl;
+    }
+
+    public void setRedirectUrl(String redirectUrl) {
+        this.redirectUrl = redirectUrl;
+    }
+
+    public String getoAuthURI() {
+        return oAuthURI;
+    }
+
+    public void setoAuthURI(String oAuthURI) {
+        this.oAuthURI = oAuthURI;
+    }
+
+    public String getGrandType() {
+        return grandType;
+    }
+
+    public void setGrandType(String grandType) {
+        this.grandType = grandType;
+    }
+
+    public String getGoogleUserDetailsServiceUrl() {
+        return googleUserDetailsServiceUrl;
+    }
+
+    public void setGoogleUserDetailsServiceUrl(String googleUserDetailsServiceUrl) {
+        this.googleUserDetailsServiceUrl = googleUserDetailsServiceUrl;
+    }
+
+    public String getClientSecret() {
+        return clientSecret;
+    }
+
+    public void setClientSecret(String clientSecret) {
+        this.clientSecret = clientSecret;
+    }
+
+    public String getClientId() {
+        return clientId;
+    }
+
+    public void setClientId(String clientId) {
+        this.clientId = clientId;
+    }
 }

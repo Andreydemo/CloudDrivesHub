@@ -1,17 +1,31 @@
-<div class="container-fluid">
-    <form method="POST" action="/auth/login">
-        <label class="radio">Please Login</b></label>
+<div class="container">
+    <form method="POST" action="/auth/login" class="form-horizontal" role="form">
+        <h2>Login Form</h2>
         <br>
-        <br>
-        <input name="username" placeholder="username" class="form-control" autofocus="autofocus">
-        <br>
-        <input name="password" placeholder="password" type="password" class="form-control">
-        <br>
-        <input type="submit" value="login" class="btn btn-primary">
+        <div class="form-group">
+            <label for="username" class="col-sm-3 control-label">Username/Email</label>
+            <div class="col-sm-9">
+                <input type="email" id="username" placeholder="Username" class="form-control" autofocus name="username">
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="text" id="password" placeholder="Password" class="form-control" autofocus name="password">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+            </div>
+        </div>
 
+        <div class="form-group">
+            <div class="col-sm-9 col-sm-offset-3">
+                <a class="btn btn-primary btn-block"  href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=690021527776-te0rhgc7pn70h6rrg1t01tkajok6oc3v.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&redirect_uri=http%3A%2F%2Flocalhost:8080%2Fauth%2Fgoogle-signup">
+                    Login with Google
+                </a>
+            </div>
+        </div>
     </form>
-
-    <a class="btn btn-primary"  href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=690021527776-te0rhgc7pn70h6rrg1t01tkajok6oc3v.apps.googleusercontent.com&scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile&redirect_uri=http%3A%2F%2Flocalhost:8080%2Fauth%2Fgoogle-signup">
-        Login with Google
-    </a>
 </div>
